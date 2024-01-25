@@ -1,11 +1,12 @@
+import { AuthProvider } from "./auth/AuthContext";
 import { AppRouter } from "./router/AppRouter";
 
 
 function ChatApp() {
   return (
-    <div>
+    <AuthProvider>
       <AppRouter />
-    </div>
+    </AuthProvider>
   );
 }
 
