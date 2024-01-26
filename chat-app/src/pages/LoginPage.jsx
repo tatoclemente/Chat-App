@@ -55,8 +55,8 @@ export const LoginPage = () => {
 		}
 
 		const { email, password } = form
-		console.log({ email, password });
-		// Todo: Llamar al backend
+	
+		// Llamar al backend
 		
 		const ok = await login(email, password)
 		if (!ok) {
@@ -67,7 +67,11 @@ export const LoginPage = () => {
 	const allOk = () => {
 		const regexEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
 
-		return  regexEmail.test(form.email) && form.email.length > 0 && form.password.length > 0
+		return  (
+			regexEmail.test(form.email) 
+			&& form.email.length > 0 
+			&& form.password.length > 0
+		)
 	}
 
   return (
@@ -82,6 +86,7 @@ export const LoginPage = () => {
 					
 					<div className="wrap-input100 validate-input mb-3">
 						<input 
+						  autoComplete="username"
 							className="input100" 
 							type="email" 
 							name="email" 
@@ -95,6 +100,7 @@ export const LoginPage = () => {
 					
 					<div className="wrap-input100 validate-input mb-3">
 						<input 
+							autoComplete="current-password"
 							className="input100" 
 							type="password" 
 							name="password" 

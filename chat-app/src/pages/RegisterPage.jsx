@@ -73,6 +73,7 @@ export const RegisterPage = () => {
 
 					<div className="wrap-input100 validate-input mb-3">
 						<input 
+							autoComplete="username"
 							className="input100" 
 							type="text" 
 							name="name" 
@@ -85,6 +86,7 @@ export const RegisterPage = () => {
 					
 					<div className="wrap-input100 validate-input mb-3">
 						<input 
+							autoComplete="username"
 							className="input100" 
 							type="email" 
 							name="email" 
@@ -97,6 +99,7 @@ export const RegisterPage = () => {
 					
 					<div className="wrap-input100 validate-input mb-3">
 						<input 
+							autoComplete="current-password"
 							className="input100" 
 							type="password" 
 							name="password" 
