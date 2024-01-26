@@ -25,7 +25,7 @@ export const AppRouter = () => {
     tokenVerify()
   }, [tokenVerify])
 
-  console.log(auth);
+  
   if (auth.checking) {
     return <h1>Espere por favor... </h1>
   }

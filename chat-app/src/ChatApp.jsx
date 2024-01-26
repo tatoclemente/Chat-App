@@ -6,7 +6,7 @@ import { AppRouter } from "./router/AppRouter";
 function ChatApp() {
   return (
     <AuthProvider>
-      <SocketProvider> // El contxto del socket necesita información de autenticación
+      <SocketProvider> {/* El contxto del socket necesita información de autenticación */}
         <AppRouter />
       </SocketProvider>
     </AuthProvider>

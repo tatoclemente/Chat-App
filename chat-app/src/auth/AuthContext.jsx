@@ -26,7 +26,6 @@ export const AuthProvider = ({ children }) => {
 
       const { uid, name, email } = resp.user
       setAuth({ uid, name, email, logged: true, checking: false })
-      console.log('Autenticated!');
     }
 
     return resp.ok
@@ -44,7 +43,6 @@ export const AuthProvider = ({ children }) => {
 
       const { uid, name, email } = resp.user
       setAuth({ uid, name, email, logged: true, checking: false })
-      console.log('Autenticated!');
 
       return resp.ok
     }
@@ -65,7 +63,6 @@ export const AuthProvider = ({ children }) => {
     if (resp.ok) {
       const { uid, name, email } = resp.user
       setAuth({ uid, name, email, logged: true, checking: false })
-      console.log('Autenticated!');
       return true
     } else {
       setAuth({ ...initialState, checking: false })
