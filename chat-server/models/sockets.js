@@ -1,4 +1,4 @@
-const { userConnect, userDisconnect, getUsers } = require("../controllers/socket");
+const { userConnect, userDisconnect, getUsers, saveMessage } = require("../controllers/socket");
 const { checkJWT } = require("../helpers/jwt");
 
 
@@ -29,6 +29,9 @@ class Sockets {
       const user = await userConnect( uid )
 
       console.log('Se conecto ' + user.name);
+      
+      // Socket Join, uid
+      socket.join( uid )
 
       // Todo: Validar el JWT
       // Si el token no es válido, desconectar
@@ -40,9 +43,13 @@ class Sockets {
       const users = await getUsers()
       this.io.emit('users-list', users)
 
-      // Todo: Socket Join, uid
 
-      // Todo: Escuchar el cliente emite un mensaje
+      // Escuchar el cliente emite un mensaje
+      socket.on('private-message', async ( payload ) => {
+          const message = await saveMessage( payload )
+          this.io.to(payload.to).emit('private-message', message)
+          this.io.to(payload.from).emit('private-message', message)
+      })
       // mensaje-personal
 
       // Todo: Disconnect
@@ -55,6 +62,9 @@ class Sockets {
         
         const user = await userDisconnect( uid )
         console.log('Se desconecto ' + user.name);
+
+        const users = await getUsers()
+        this.io.emit('users-list', users)
       })
       
     }); 
