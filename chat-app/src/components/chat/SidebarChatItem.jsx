@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import { ChatContext } from '../../context/chat/ChatContext'
 import { types } from '../../types/types'
 
@@ -8,13 +8,9 @@ export const SidebarChatItem = ({ name, online, uid }) => {
 
   const { activeChat } = chatState;
 
-  const [active, setActive] = useState(false)
-
 
   const onClick = () => {
-    if (uid === activeChat) {
-      setActive(true)
-    }
+
     dispatch({
       type: types.activateChat,
       payload: {
@@ -23,10 +19,11 @@ export const SidebarChatItem = ({ name, online, uid }) => {
     })
   }
 
+
   return (
     <div 
     // className='chat_list active_chat'
-    className={`chat_list ${( uid === activeChat.uid) && 'active_chat'}`}
+    className={`chat_list ${( uid === activeChat?.uid) && 'active_chat'}`}
     onClick={onClick}
     >
       {/* active_chat */}

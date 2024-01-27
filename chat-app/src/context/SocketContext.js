@@ -36,9 +36,24 @@ export const SocketProvider = ({children}) => {
 
     }, [ auth, socketDisconnect ])
 
+    
+    useEffect(() => {
+
+        socket?.on('private-message', (message) => {
+            
+            dispatch({
+                type: types.newMessage,
+                payload: message
+            })
+        })
+
+    }, [socket, dispatch])
+
+
     useEffect(() => {
 
         socket?.on( 'users-list', (users) => {
+
             dispatch({
                 type: types.loadedUsers,
                 payload: users
