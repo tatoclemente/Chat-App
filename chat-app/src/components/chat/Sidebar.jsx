@@ -7,8 +7,7 @@ import { AuthContext } from '../../auth/AuthContext'
 export const Sidebar = () => {
 
   const { chatState } = useContext(ChatContext)
-  const { auth } = useContext(AuthContext)
-  console.log(auth);
+  const { auth } = useContext(AuthContext);
 
 
   return (
