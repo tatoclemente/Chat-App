@@ -1,22 +1,29 @@
 
-import { animateScroll } from 'react-scroll'
 
+export const scrollToBottom = ( ref ) => {
 
-export const scrollToBottom = ( id ) => {
+  console.log(ref);
 
-  console.log(id);
+  const element = ref.current;
 
-    animateScroll.scrollToBottom('messages', { 
-      containerId: id,
-      duration: 0, 
-    })
+  if (element) {
+    const bottomPosition = element.scrollHeight - element.clientHeight;
+    element.scrollTop = bottomPosition;
+  } else {
+    console.error("Elemento no encontrado con el ID: " + ref);
+  }
+
 }
 
-export const scrollToBottomAnimated = ( id ) => {
 
-    animateScroll.scrollToBottom( { 
-      containerId: id,
-      duration: 250, 
-    } )
+
+
+export const scrollToBottomAnimated = ( reference ) => {
+console.log(reference);
+  
 }
+
+
+
+
 

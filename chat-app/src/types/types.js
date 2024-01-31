@@ -6,5 +6,6 @@ export const types = {
   activateChat: '[Chat] Activate chat',
   newMessage: '[Chat] New message',
   loadMessages: '[Chat] Load messages',
+  clearSession: '[Chat] Clear session',
 
 }

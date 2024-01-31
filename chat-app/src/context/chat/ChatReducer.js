@@ -41,6 +41,15 @@ export const ChatReducer = (state, action) => {
         ...state,
         messages: [ ...action.payload ]
       }
+    
+    case types.clearSession:
+      return {
+        uid: '',
+        activeChat: null,
+        users: [],
+        messages: []
+      }
+
 
     default:
       return state
